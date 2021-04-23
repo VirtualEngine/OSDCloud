@@ -13,7 +13,7 @@ Install-Module OSD -Force
 
 Write-Host  -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
-
+<#
 #Start OSDCloud ZTI the RIGHT way
 Write-Host  -ForegroundColor Green "Start OSDCloud"
 Start-OSDCloud -OSLanguage en-gb -OSBuild 20H2 -OSEdition Enterprise -ZTI -SkipAutopilot
@@ -23,3 +23,4 @@ Read-Host -Prompt "Please remove boot media now and press any key to continue...
 Write-Host  -ForegroundColor Cyan "Restarting in 20 seconds!"
 Start-Sleep -Seconds 20
 wpeutil reboot
+#>
