@@ -19,7 +19,7 @@ Import-Module OSD -Force
 #Start OSDCloud ZTI the RIGHT way
 Write-Host  -ForegroundColor Green "Start OSDCloud"
 #Start-OSDCloud -OSLanguage en-gb -OSBuild 21H2 -OSEdition Enterprise -ZTI -SkipAutopilot
-#Start-OSCloudGUI
+Start-OSCloudGUI
 
 #Restart from WinPE
 #Read-Host -Prompt "Please remove boot media now and press any key to continue..."
