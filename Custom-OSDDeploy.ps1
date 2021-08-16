@@ -11,17 +11,18 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
 Install-Module OSD -Force
 
-Write-Host  -ForegroundColor Cyan "Importing OSD PowerShell Module"
+Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
 
 ## Test we are connected to the internet
 If ((Test-NetConnection google.com -Port 443 -InformationLevel Quiet) -eq $true) {
 
-    Write-Verbose -Message ('Succsessfully connected to the internet')
+    Write-Host -ForegroundColor Green ('Succsessfully connected to the internet')
     exit
 }
 else {
 
+    Write-Host -ForegroundColor Red ('Not connected to the internet')
     Start-WinREWiFi
 }
 
