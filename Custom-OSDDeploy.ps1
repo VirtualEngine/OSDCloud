@@ -29,7 +29,7 @@ $Global:MyOSDCloud.SkipAutopilot = $true
 $Global:MyOSDCloud.SkipODT = $true
 #>
 
-$Global:MyOSDCloud = {
+$Global:OSDCloud = {
     OSBuild = "20H2",
     OSLanguage = "en-gb",
     OSEdition = "Enterprise",
