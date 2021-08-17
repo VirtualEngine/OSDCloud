@@ -17,15 +17,15 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 Import-Module OSD -Force
 
 #$Global:StartOSDCloud = { ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl"}
-$Global:OSDCloud.OSBuild = "20H2"
-$Global:OSDCloud.OSLanguage = "en-gb"
-$Global:OSDCloud.OSEdition = "Enterprise"
-$Global:OSDCloud.ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl"
-$Global:OSDCloud.ImageFileName = "VEN-Windows-10-20H2-O365x64-2021-07-21.wim"
-$Global:OSDCloud.Restart = $False
-$Global:OSDCloud.ZTI = $true
-$Global:OSDCloud.SkipAutopilot = $true
-$Global:OSDCloud.SkipODT = $true
+$Global:MyOSDCloud.OSBuild = "20H2"
+$Global:MyOSDCloud.OSLanguage = "en-gb"
+$Global:MyOSDCloud.OSEdition = "Enterprise"
+$Global:MyOSDCloud.ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl"
+$Global:MyOSDCloud.ImageFileName = "VEN-Windows-10-20H2-O365x64-2021-07-21.wim"
+$Global:MyOSDCloud.Restart = $False
+$Global:MyOSDCloud.ZTI = $true
+$Global:MyOSDCloud.SkipAutopilot = $true
+$Global:MyOSDCloud.SkipODT = $true
 
 #Start OSDCloud ZTI the RIGHT way
 #Write-Host  -ForegroundColor Green "Start OSDCloud"
