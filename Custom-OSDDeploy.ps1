@@ -40,7 +40,7 @@ $Global:OSDCloud = {
 
 #Start OSDCloud ZTI the RIGHT way
 #Write-Host  -ForegroundColor Green "Start OSDCloud"
-#Start-OSDCloud -OSLanguage en-gb -OSBuild 21H2 -OSEdition Enterprise -ZTI -SkipAutopilot
+Start-OSDCloud -OSLanguage en-gb -OSBuild 21H2 -OSEdition Enterprise -ZTI -SkipAutopilot -SkipODT
 #Start-OSCloudGUI
 
 #Restart from WinPE
