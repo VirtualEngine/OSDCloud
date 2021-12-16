@@ -1,4 +1,4 @@
-Start-Transcript X:\Windows\Logs\VE-Cloud.log
+#Start-Transcript X:\Windows\Logs\VE-Cloud.log
 
 Write-Host  -ForegroundColor Cyan "Starting Virtual Engine's Custom OSDCloud ..."
 Start-Sleep -Seconds 5
@@ -11,36 +11,22 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 
 #Make sure I have the latest OSD Content
 #Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
-##Install-Module OSD -Force
+Install-Module OSD -Force
 
 #Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
 
-<#
-#$Global:StartOSDCloud = { ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl"}
-$Global:MyOSDCloud.OSBuild = "20H2"
-$Global:MyOSDCloud.OSLanguage = "en-gb"
-$Global:MyOSDCloud.OSEdition = "Enterprise"
-$Global:MyOSDCloud.ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl"
-$Global:MyOSDCloud.ImageFileName = "VEN-Windows-10-20H2-O365x64-2021-07-21.wim"
-$Global:MyOSDCloud.Restart = $False
-$Global:MyOSDCloud.ZTI = $true
-$Global:MyOSDCloud.SkipAutopilot = $true
-$Global:MyOSDCloud.SkipODT = $true
-#>
+## update WebFile.ps1 with VE version
+$version = (get-childitem 'C:\Program Files\WindowsPowerShell\Modules\OSD\' | Select -Last 1).name
+$modulepath = "C:\Program Files\WindowsPowerShell\Modules\OSD\$version"
+(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/VirtualEngine/OSD/master/Public/WebFile.ps1',"$modulepath\WebFile.ps1")
 
-$Global:OSDCloud = {
-    OSBuild = "20H2",
-    OSLanguage = "en-gb",
-    OSEdition = "Enterprise",
-    ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-20H2-O365x64-2021-07-21.wim?sv=2019-07-07&sig=5a%2BUd0wRec8nGtFsKakfLjJ0Wd%2FZtGmy5HIzKOQ9HfU%3D&spr=https&se=2021-08-20T17%3A56%3A30Z&srt=co&ss=f&sp=rcwdl",
-    ImageFileName = "VEN-Windows-10-20H2-O365x64-2021-07-21.wim"
-
-}
+## url to custom WIM
+$ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-21H2-O365x64-2021-12-16.wim?sp=r&st=2021-12-16T17:12:19Z&se=2021-12-17T17:12:19Z&spr=https&sv=2020-08-04&sig=zHB1X8X1zcpiZEd%2FtOmM0hkojEDgL7egKiyjoQ6T3Lk%3D&sr=f"
 
 #Start OSDCloud ZTI the RIGHT way
 #Write-Host  -ForegroundColor Green "Start OSDCloud"
-Start-OSDCloud -OSLanguage en-gb -OSBuild 21H2 -OSEdition Enterprise -ZTI -SkipAutopilot -SkipODT
+Start-OSDCloud ZTI -SkipAutopilot -SkipODT -ImageFileUrl $ImageFileUrl -ImageIndex 1 -Verbose
 #Start-OSCloudGUI
 
 #Restart from WinPE
@@ -49,4 +35,4 @@ Start-OSDCloud -OSLanguage en-gb -OSBuild 21H2 -OSEdition Enterprise -ZTI -SkipA
 #Start-Sleep -Seconds 20
 #wpeutil reboot
 
-Stop-Transcript
+#Stop-Transcript
