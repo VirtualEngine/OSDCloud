@@ -19,6 +19,7 @@ Import-Module OSD -Force
 ## update WebFile.ps1 with VE version
 $version = (get-childitem "$env:SystemDrive\Program Files\WindowsPowerShell\Modules\OSD\" | Select -Last 1).name
 $modulepath = "$env:SystemDrive\Program Files\WindowsPowerShell\Modules\OSD\$version\Public"
+remove-item "$modulepath\WebFile.ps1"
 (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/VirtualEngine/OSD/master/Public/WebFile.ps1',"$modulepath\WebFile.ps1")
 
 ## url to custom WIM
