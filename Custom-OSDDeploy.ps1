@@ -3,20 +3,23 @@
 Write-Host  -ForegroundColor Cyan "Starting Virtual Engine's Custom OSDCloud ..."
 Start-Sleep -Seconds 5
 
+<#
 #Change Display Resolution for Virtual Machine
 if ((Get-MyComputerModel) -match 'Virtual') {
     Write-Host  -ForegroundColor Cyan "Setting Display Resolution to 1600x"
     Set-DisRes 1600
 }
+#>
 
 #Make sure I have the latest OSD Content
-#Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
+Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
 Install-Module OSD -Force
 
-#Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
+Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
 
 ## update WebFile.ps1 with VE version
+Write-Host -ForegroundColor Cyan "Updating WebFile.ps1"
 $version = (get-childitem "$env:SystemDrive\Program Files\WindowsPowerShell\Modules\OSD\" | Select -Last 1).name
 $modulepath = "$env:SystemDrive\Program Files\WindowsPowerShell\Modules\OSD\$version\Public"
 remove-item "$modulepath\WebFile.ps1"
@@ -27,7 +30,7 @@ $ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-2
 
 #Start OSDCloud ZTI the RIGHT way
 #Write-Host  -ForegroundColor Green "Start OSDCloud"
-#Start-OSDCloud ZTI -SkipAutopilot -SkipODT -ImageFileUrl $ImageFileUrl -ImageIndex 1 -Verbose
+Start-OSDCloud -ZTI -SkipAutopilot -SkipODT -ImageFileUrl $ImageFileUrl -ImageIndex 1
 #Start-OSCloudGUI
 
 #Restart from WinPE
