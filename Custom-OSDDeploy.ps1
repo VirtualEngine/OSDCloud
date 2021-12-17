@@ -28,8 +28,11 @@ remove-item "$modulepath\WebFile.ps1"
 ## url to custom WIM
 $ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-21H2-O365x64-2021-12-16.wim?sp=r&st=2021-12-16T17:12:19Z&se=2021-12-17T17:12:19Z&spr=https&sv=2020-08-04&sig=zHB1X8X1zcpiZEd%2FtOmM0hkojEDgL7egKiyjoQ6T3Lk%3D&sr=f"
 
+Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
+Import-Module OSD -Force
+
 #Start OSDCloud ZTI the RIGHT way
-#Write-Host  -ForegroundColor Green "Start OSDCloud"
+Write-Host  -ForegroundColor Green "Start OSDCloud"
 Start-OSDCloud -ZTI -SkipAutopilot -SkipODT -ImageFileUrl "$ImageFileUrl" -ImageIndex 1
 #Start-OSCloudGUI
 
