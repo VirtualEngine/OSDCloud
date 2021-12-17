@@ -30,7 +30,7 @@ $ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-2
 
 #Start OSDCloud ZTI the RIGHT way
 #Write-Host  -ForegroundColor Green "Start OSDCloud"
-Start-OSDCloud -ZTI -SkipAutopilot -SkipODT -ImageFileUrl $ImageFileUrl -ImageIndex 1
+Start-OSDCloud -ZTI -SkipAutopilot -SkipODT -ImageFileUrl "$ImageFileUrl" -ImageIndex 1
 #Start-OSCloudGUI
 
 #Restart from WinPE
