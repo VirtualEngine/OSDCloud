@@ -15,8 +15,8 @@ if ((Get-MyComputerModel) -match 'Virtual') {
 Write-Host  -ForegroundColor Cyan "Updating OSD PowerShell Module"
 Install-Module OSD -Force
 
-Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
-Import-Module OSD -Force
+#Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
+#Import-Module OSD -Force
 
 ## update WebFile.ps1 with VE version
 Write-Host -ForegroundColor Cyan "Updating WebFile.ps1"
