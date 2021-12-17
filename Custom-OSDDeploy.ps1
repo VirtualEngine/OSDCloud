@@ -26,7 +26,7 @@ remove-item "$modulepath\WebFile.ps1"
 (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/VirtualEngine/OSD/master/Public/WebFile.ps1',"$modulepath\WebFile.ps1")
 
 ## url to custom WIM
-$ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-21H2-O365x64-2021-12-16.wim?sp=r&st=2021-12-16T17:12:19Z&se=2021-12-17T17:12:19Z&spr=https&sv=2020-08-04&sig=zHB1X8X1zcpiZEd%2FtOmM0hkojEDgL7egKiyjoQ6T3Lk%3D&sr=f"
+$ImageFileUrl = "https://prdeuweven.file.core.windows.net/image/VEN-Windows-10-21H2-O365x64-2021-12-16.wim?sp=r&st=2021-12-17T14:04:30Z&se=2021-12-18T14:04:30Z&spr=https&sv=2020-08-04&sig=SI0hsv2f2IYfEJojIJQ1tY9zxZ81TSjQFhAEcvDMzYc%3D&sr=f"
 
 Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
