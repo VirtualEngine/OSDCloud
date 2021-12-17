@@ -32,7 +32,7 @@ Write-Host -ForegroundColor Cyan "Importing OSD PowerShell Module"
 Import-Module OSD -Force
 
 #Start OSDCloud ZTI the RIGHT way
-Write-Host  -ForegroundColor Green "Start OSDCloud"
+Write-Host -ForegroundColor Green "Start OSDCloud"
 Start-OSDCloud -ZTI -SkipAutopilot -SkipODT -ImageFileUrl "$ImageFileUrl" -ImageIndex 1 -Verbose
 #Start-OSCloudGUI
 
